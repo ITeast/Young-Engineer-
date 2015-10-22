@@ -13,10 +13,13 @@
 @end
 
 @implementation GameView
-//****************************************************
+//*********************************************
 //Глобальные переменные
-int result;
-//****************************************************
+int Result;
+int *arg2;
+int arg1[10];
+int GameStep;
+//*********************************************
 - (void)viewDidLoad  {
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     //**************************************
@@ -108,13 +111,7 @@ int result;
                                   otherButtonTitles: nil];
     [MessageError show];
 }
-//*********************************************
-//Глобальные переменные
-int Result;
-int *arg2;
-int arg1[10];
-int GameStep;
-//*********************************************
+
 -(bool) AreUserAnswerRight:(int) argument1 Arg2:(int) argument2 Answer: (int) userAnswer
 {
     bool Answer=FALSE;
