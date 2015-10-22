@@ -19,6 +19,17 @@ int result;
 //****************************************************
 - (void)viewDidLoad  {
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    //**************************************
+    //Генерирование массива аргументов
+    arg2=malloc(sizeof(int)*10);
+    arg2=[self GenerateArray];
+    for (int i=1; i<=10; i++)
+    {
+        arg1[i-1]=2;
+    }
+    //**************************************
+    [self OutputExampleToUILable:0];
+    GameStep=0;
     
     _btn1.layer.cornerRadius = 32; // this value vary as per your desire
     _btn2.layer.cornerRadius = 32; // this value vary as per your desire
@@ -97,16 +108,51 @@ int result;
                                   otherButtonTitles: nil];
     [MessageError show];
 }
--(bool) AreUserAnswerRight:(int) argument1 arg2: (int) argument2 answer: (int) userAnswer
+//*********************************************
+//Глобальные переменные
+int Result;
+int *arg2;
+int arg1[10];
+int GameStep;
+//*********************************************
+-(bool) AreUserAnswerRight:(int) argument1 Arg2:(int) argument2 Answer: (int) userAnswer
 {
-    bool answer=false;
-    int rightAnswer=argument1*argument2;
-    if(rightAnswer==userAnswer)
+    bool Answer=FALSE;
+    int RightAnswer=argument1*argument2;
+    if(RightAnswer==userAnswer)
     {
-        answer=true;
+        Answer=TRUE;
     }
     
-    return answer;
+    return Answer;
+    
+}
+-(void)OutputExampleToUILable:(int) numberExample
+{
+    _Example.text=[NSString stringWithFormat:@"%dx%d=?",arg1[numberExample],arg2[numberExample]];
+    
+}
+-(int *)GenerateArray
+{
+    int *Array=malloc(sizeof(int)*10);
+    int *ArrayArg2=malloc(sizeof(int)*10);
+    
+    
+    for(int i=1; i<=10; i++)
+    {
+        Array[i-1]=i; //level
+        ArrayArg2[i-1]=i;
+    }
+    int j=0;
+    int wLeft=10;
+    for(int i=0; i<10; i++)
+    {
+        j=arc4random()%wLeft;
+        ArrayArg2[i]=Array[j];
+        Array[j]=Array[--wLeft];
+        
+    }
+    return ArrayArg2;
 }
 /*
 #pragma mark - Navigation
