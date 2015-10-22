@@ -47,7 +47,7 @@ int GameStep;
     result=0;
     _score.text=@"всего решено 0/10";
     
-    if([self AreUserAnswerRight:1 arg2:1 answer:2])
+    if([self AreUserAnswerRight:1 Arg2:2 Answer:2])
         {
             NSLog(@"Ответ правильный");
         }
@@ -70,6 +70,8 @@ int GameStep;
 }
 -(IBAction)press1Button:(id)sender
 {
+    GameStep++;
+    [self OutputExampleToUILable:GameStep];
     UIAlertView *MessageError;
     MessageError=[[UIAlertView alloc] initWithTitle:@""
                                             message:@"Ответ не правильный"

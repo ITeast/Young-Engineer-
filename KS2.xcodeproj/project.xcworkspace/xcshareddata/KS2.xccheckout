@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7A45BAF2-E5E0-4B2E-9AA4-412486F14331</string>
+	<key>IDESourceControlProjectName</key>
+	<string>KS2</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>78FB9D67226DD7E93417AC0B3BF61ACE9CE4C09E</key>
+		<string>https://github.com/ITeast/Young-Engineer-.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>KS2.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>78FB9D67226DD7E93417AC0B3BF61ACE9CE4C09E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ITeast/Young-Engineer-.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>78FB9D67226DD7E93417AC0B3BF61ACE9CE4C09E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>78FB9D67226DD7E93417AC0B3BF61ACE9CE4C09E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>KS2</string>
+		</dict>
+	</array>
+</dict>
+</plist>

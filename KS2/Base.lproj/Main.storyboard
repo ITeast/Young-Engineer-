@@ -192,7 +192,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Для разблокировки завершите предыдущий уровень" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLz-1I-HCX">
                                                     <rect key="frame" x="8" y="79" width="300" height="41"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -343,6 +343,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="Example" destination="h3K-Wx-jsu" id="WEE-yE-bIP"/>
                         <outlet property="btn1" destination="kkn-dZ-tqa" id="CAs-i3-hGp"/>
                         <outlet property="btn2" destination="07F-FV-OlB" id="kJb-gH-tzD"/>
                         <outlet property="btn3" destination="ckW-Xf-X4x" id="QGO-oX-GT5"/>
