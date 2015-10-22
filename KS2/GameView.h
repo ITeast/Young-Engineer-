@@ -14,4 +14,5 @@
 @property (nonatomic,strong)IBOutlet UIButton *btn3;
 @property (nonatomic,strong)IBOutlet UIButton *btn4;
 @property (nonatomic,strong)IBOutlet UILabel *score;
+@property (nonatomic,strong)IBOutlet UILabel *Example;
 @end
