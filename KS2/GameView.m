@@ -15,7 +15,7 @@
 @implementation GameView
 //*********************************************
 //Глобальные переменные
-int Result;
+int result;
 int *arg2;
 int arg1[10];
 int GameStep;
