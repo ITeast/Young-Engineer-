@@ -20,6 +20,51 @@ int *arg2;
 int arg1[10];
 int GameStep;
 //*********************************************
+-(void)GenerateAnswer:(int) numberExample
+{
+    // 1 заполнение кнопок произв данными
+    int Answer;
+    int LastAnswer=-1;
+    int RightAnswer=arg1[numberExample]*arg2[numberExample];
+    for (int i=0; i<4; i++)
+    {
+        do
+        {
+            Answer=arc4random()%(RightAnswer*2);
+        }
+        while(LastAnswer==Answer);
+        [ self SetTextToButon:i Answer:Answer];
+        
+    }
+    // 2 ввод правильного ответа
+    int indexRightAnswer=arc4random()%4;
+    [self SetTextToButon:indexRightAnswer Answer:RightAnswer];
+    
+}
+
+-(void)SetTextToButon: (int) numberButton Answer: (int) Answer
+{
+    if(numberButton==0)
+    {
+        [_btn1 setTitle:[NSString stringWithFormat:@"%d",Answer] forState:UIControlStateNormal];
+        
+    }
+    else if(numberButton==1)
+    {
+        [_btn2 setTitle:[NSString stringWithFormat:@"%d",Answer] forState:UIControlStateNormal];
+    }
+    else if(numberButton==2)
+    {
+        [_btn3 setTitle:[NSString stringWithFormat:@"%d",Answer] forState:UIControlStateNormal];
+    }
+    else if(numberButton==3)
+    {
+        [_btn4 setTitle:[NSString stringWithFormat:@"%d",Answer] forState:UIControlStateNormal];
+    }
+    
+
+
+}
 - (void)viewDidLoad  {
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     //**************************************
@@ -72,46 +117,25 @@ int GameStep;
 {
     GameStep++;
     [self OutputExampleToUILable:GameStep];
-    UIAlertView *MessageError;
-    MessageError=[[UIAlertView alloc] initWithTitle:@""
-                                            message:@"Ответ не правильный"
-                                           delegate:self
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles: nil];
-    [MessageError show];
+
+
     
 }
 -(IBAction)press2Button:(id)sender
 {
-    UIAlertView *MessageError;
-    MessageError=[[UIAlertView alloc] initWithTitle:@""
-                                            message:@"Ответ не правильный"
-                                           delegate:self
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles: nil];
-    [MessageError show];
+    GameStep++;
+    [self OutputExampleToUILable:GameStep];
+    
 }
 -(IBAction)press3Button:(id)sender
 {
-    UIAlertView *MessageError;
-    MessageError=[[UIAlertView alloc] initWithTitle:@""
-                                            message:@"Ответ правильный"
-                                           delegate:self
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles: nil];
-    result++;
-    _score.text= [NSString stringWithFormat:@"всего решено %d/10",result];
-    [MessageError show];
+    GameStep++;
+    [self OutputExampleToUILable:GameStep];
 }
 -(IBAction)press4Button:(id)sender
 {
-    UIAlertView *MessageError;
-    MessageError=[[UIAlertView alloc] initWithTitle:@""
-                                            message:@"Ответ не правильный"
-                                           delegate:self
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles: nil];
-    [MessageError show];
+    GameStep++;
+    [self OutputExampleToUILable:GameStep];
 }
 
 -(bool) AreUserAnswerRight:(int) argument1 Arg2:(int) argument2 Answer: (int) userAnswer
@@ -129,6 +153,8 @@ int GameStep;
 -(void)OutputExampleToUILable:(int) numberExample
 {
     _Example.text=[NSString stringWithFormat:@"%dx%d=?",arg1[numberExample],arg2[numberExample]];
+    
+    [self GenerateAnswer:numberExample];
     
 }
 -(int *)GenerateArray
