@@ -24,17 +24,21 @@ int GameStep;
 {
     // 1 заполнение кнопок произв данными
     int Answer;
-    int LastAnswer=-1;
+    int LastAnswer[4];
+    LastAnswer[0]=-1;
+    LastAnswer[1]=-1;
+    LastAnswer[2]=-1;
+    LastAnswer[3]=-1;
     int RightAnswer=arg1[numberExample]*arg2[numberExample];
     for (int i=0; i<4; i++)
     {
         do
         {
-            Answer=arc4random()%(RightAnswer*2);
+            Answer=arc4random()%(RightAnswer*2+10);
         }
-        while(LastAnswer==Answer);
+        while(LastAnswer[0]==Answer || LastAnswer[1]==Answer || LastAnswer[2]==Answer || LastAnswer[3]==Answer || Answer==RightAnswer);
         [ self SetTextToButon:i Answer:Answer];
-        
+     LastAnswer[i]=Answer;    
     }
     // 2 ввод правильного ответа
     int indexRightAnswer=arc4random()%4;
