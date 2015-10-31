@@ -52,26 +52,20 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.row<2)
-    {
-        
+    
+   // if(indexPath.row<2)
+   // {
+       
     LevelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LevelCellID" forIndexPath:indexPath];
     
         if(indexPath.row==0)
-        {
+        
             cell.Result.text=@"Ваш результат: 8/10";
             [cell.Star1 setImage:[UIImage imageNamed:@"star.png"]];
             [cell.Star2 setImage:[UIImage imageNamed:@"star.png"]];
-            [cell.Star3 setImage:[UIImage imageNamed:@"star.png"]];
-            [cell.Star4 setImage:[UIImage imageNamed:@"star.png"]];
-        }
-        if(indexPath.row==1)
-        {
-            cell.Result.text=@"Ваш результат: 3/10";
-            [cell.Star1 setImage:[UIImage imageNamed:@"star.png"]];
-            [cell.Star2 setImage:[UIImage imageNamed:@"star.png"]];
-            
-        }
+         
+    
+    
     cell.Level.text=@"Уровень ";
     int Level=indexPath.row+1;
     NSString *fileNameLevel=[[NSString stringWithFormat:@"%ld",(long)Level] stringByAppendingFormat:@".png"];
@@ -83,9 +77,11 @@
     cell.btn1.clipsToBounds = YES;
     [cell.levelImage setImage:[UIImage imageNamed:fileNameLevel]];
     return cell;
-    }
+   // }
+    /*
     else
     {
+        
         BlockViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BlockCellID" forIndexPath:indexPath];
         
         cell.Level.text=@"Уровень ";
@@ -97,10 +93,10 @@
     
         [cell.levelImage setImage:[UIImage imageNamed:fileNameLevel]];
         return cell;
-    }
+    }*/
     // Configure the cell...
     
-    return nil;
+    //return nil;
 }
 
 

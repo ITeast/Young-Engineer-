@@ -97,6 +97,7 @@ int GameStep;
     _btn4.clipsToBounds = YES;
     
     result=0;
+    [self ShowGameScore:result];
     [self ShowGameStep:GameStep];
     
     if([self AreUserAnswerRight:1 Arg2:2 Answer:2])
@@ -122,7 +123,7 @@ int GameStep;
 }
 -(void)ShowGameScore: (int)GameResult
 {
-    _GameScore.text=[NSString stringWithFormat:@"Ваш счет: %d/10",GameResult];
+    _GameScore.text=[NSString stringWithFormat:@"Ваш счет: %d",GameResult];
 }
 -(void)GameLoop
 
@@ -138,23 +139,51 @@ int GameStep;
     int UserAnswer=[title intValue];
     if([self AreUserAnswerRight:arg1[GameStep] Arg2:arg2[GameStep] Answer:UserAnswer])
     {
-        //Пользователь ответел праыильно
+        //Пользователь ответил правильно
+        result++;
+        [self ShowGameScore:result];
     }
     [self GameLoop];
     
 }
 -(IBAction)press2Button:(id)sender
 {
+    NSString *title=_btn2.currentTitle;
+    int UserAnswer=[title intValue];
+    if([self AreUserAnswerRight:arg1[GameStep] Arg2:arg2[GameStep] Answer:UserAnswer])
+    {
+        //Пользователь ответил правильно
+        result++;
+        [self ShowGameScore:result];
+    }
    
     [self GameLoop];
 }
 -(IBAction)press3Button:(id)sender
 {
+    NSString *title=_btn3.currentTitle;
+    int UserAnswer=[title intValue];
+    if([self AreUserAnswerRight:arg1[GameStep] Arg2:arg2[GameStep] Answer:UserAnswer])
+    {
+        //Пользователь ответил правильно
+        result++;
+        [self ShowGameScore:result];
+    }
+
     [self GameLoop];
     
 }
 -(IBAction)press4Button:(id)sender
 {
+    NSString *title=_btn4.currentTitle;
+    int UserAnswer=[title intValue];
+    if([self AreUserAnswerRight:arg1[GameStep] Arg2:arg2[GameStep] Answer:UserAnswer])
+    {
+        //Пользователь ответил правильно
+        result++;
+        [self ShowGameScore:result];
+    }
+
     [self GameLoop];
     
 }
