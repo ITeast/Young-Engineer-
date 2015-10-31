@@ -344,11 +344,12 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="Example" destination="h3K-Wx-jsu" id="WEE-yE-bIP"/>
+                        <outlet property="GameScore" destination="10g-0K-VtR" id="PRS-9a-r1w"/>
+                        <outlet property="GameStepLable" destination="Hcx-le-Jt7" id="YDJ-Sk-fWf"/>
                         <outlet property="btn1" destination="kkn-dZ-tqa" id="CAs-i3-hGp"/>
                         <outlet property="btn2" destination="07F-FV-OlB" id="kJb-gH-tzD"/>
                         <outlet property="btn3" destination="ckW-Xf-X4x" id="QGO-oX-GT5"/>
                         <outlet property="btn4" destination="2NT-ST-S0d" id="vPb-fa-k5k"/>
-                        <outlet property="score" destination="Hcx-le-Jt7" id="8Op-Pe-C0M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4n-wF-pMt" userLabel="First Responder" sceneMemberID="firstResponder"/>

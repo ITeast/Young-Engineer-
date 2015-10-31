@@ -38,14 +38,17 @@ int GameStep;
         }
         while(LastAnswer[0]==Answer || LastAnswer[1]==Answer || LastAnswer[2]==Answer || LastAnswer[3]==Answer || Answer==RightAnswer);
         [ self SetTextToButon:i Answer:Answer];
-     LastAnswer[i]=Answer;    
+     LastAnswer[i]=Answer;
     }
     // 2 ввод правильного ответа
     int indexRightAnswer=arc4random()%4;
     [self SetTextToButon:indexRightAnswer Answer:RightAnswer];
     
 }
-
+-(void)ShowGameStep: (int)GameStepNumber
+{
+    _GameStepLable.text=[NSString stringWithFormat:@"Всего решено: %d/10",GameStepNumber];
+}
 -(void)SetTextToButon: (int) numberButton Answer: (int) Answer
 {
     if(numberButton==0)
@@ -94,7 +97,7 @@ int GameStep;
     _btn4.clipsToBounds = YES;
     
     result=0;
-    _score.text=@"всего решено 0/10";
+    [self ShowGameStep:GameStep];
     
     if([self AreUserAnswerRight:1 Arg2:2 Answer:2])
         {
@@ -117,29 +120,43 @@ int GameStep;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)ShowGameScore: (int)GameResult
+{
+    _GameScore.text=[NSString stringWithFormat:@"Ваш счет: %d/10",GameResult];
+}
+-(void)GameLoop
+
+{GameStep++;
+    [self OutputExampleToUILable:GameStep];
+    [self ShowGameStep:GameStep];
+}
+
 -(IBAction)press1Button:(id)sender
 {
-    GameStep++;
-    [self OutputExampleToUILable:GameStep];
-
-
+  
+    NSString *title=_btn1.currentTitle;
+    int UserAnswer=[title intValue];
+    if([self AreUserAnswerRight:arg1[GameStep] Arg2:arg2[GameStep] Answer:UserAnswer])
+    {
+        //Пользователь ответел праыильно
+    }
+    [self GameLoop];
     
 }
 -(IBAction)press2Button:(id)sender
 {
-    GameStep++;
-    [self OutputExampleToUILable:GameStep];
-    
+   
+    [self GameLoop];
 }
 -(IBAction)press3Button:(id)sender
 {
-    GameStep++;
-    [self OutputExampleToUILable:GameStep];
+    [self GameLoop];
+    
 }
 -(IBAction)press4Button:(id)sender
 {
-    GameStep++;
-    [self OutputExampleToUILable:GameStep];
+    [self GameLoop];
+    
 }
 
 -(bool) AreUserAnswerRight:(int) argument1 Arg2:(int) argument2 Answer: (int) userAnswer

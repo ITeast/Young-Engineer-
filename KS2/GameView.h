@@ -13,6 +13,8 @@
 @property (nonatomic,strong)IBOutlet UIButton *btn2;
 @property (nonatomic,strong)IBOutlet UIButton *btn3;
 @property (nonatomic,strong)IBOutlet UIButton *btn4;
-@property (nonatomic,strong)IBOutlet UILabel *score;
+@property (nonatomic,strong)IBOutlet UILabel *GameStepLable;
+@property (nonatomic,strong)IBOutlet UILabel *GameScore;
 @property (nonatomic,strong)IBOutlet UILabel *Example;
 @end
+
