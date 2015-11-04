@@ -9,12 +9,13 @@
 #import "GetTable.h"
 #import "LevelCell.h"
 #import "BlockViewCell.h"
+#import "GameView.h"
 @interface GetTable ()
 
 @end
 
 @implementation GetTable
-
+int level;
 - (void)viewDidLoad {
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     
@@ -75,6 +76,7 @@
     cell.btn1.layer.cornerRadius = 15; // this value vary as per your desire
   
     cell.btn1.clipsToBounds = YES;
+    cell.LevelNumber=Level;
     [cell.levelImage setImage:[UIImage imageNamed:fileNameLevel]];
     return cell;
    // }
@@ -99,7 +101,23 @@
     //return nil;
 }
 
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+   //NSIndexPath * indexPath = [self.tableView indexPathForCell:sender];
+    if ([[segue identifier] isEqualToString:@"OpenGame"])
+    {
+        /*//Инициализация пути до выделенной ячейки
+        NSIndexPath *myIndexPath = [self.tableView indexPathForSelectedRow];
+        NSUInteger i;
+        //Получение номера выделенной ячейки
+        i=[myIndexPath row];*/
+        GameView *dV = [segue destinationViewController];
+        extern CurrentLevel;
+        dV.Level=CurrentLevel;
+        
+        
+    }
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

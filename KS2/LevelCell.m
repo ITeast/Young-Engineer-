@@ -13,6 +13,11 @@
 - (void)awakeFromNib {
     // Initialization code
 }
+-(IBAction)Start:(id)sender;
+{
+    extern CurrentLevel;
+    CurrentLevel= _LevelNumber;
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

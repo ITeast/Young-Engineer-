@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GetTable : UITableViewController
-
+@property NSInteger levelPath;
 @end

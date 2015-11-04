@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface LevelCell : UITableViewCell
+@property NSInteger LevelNumber;
 @property (nonatomic,strong)IBOutlet UILabel *Level;
 @property (nonatomic,strong)IBOutlet UILabel *Result;
 @property (nonatomic,strong)IBOutlet UIButton *btn1;
@@ -19,4 +20,6 @@
 @property (nonatomic,strong)IBOutlet UIImageView *Star3;
 @property (nonatomic,strong)IBOutlet UIImageView *Star4;
 @property (nonatomic,strong)IBOutlet UIImageView *Star5;
+
+-(IBAction)Start:(id)sender;
 @end

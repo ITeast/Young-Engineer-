@@ -76,11 +76,13 @@ int GameStep;
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     //**************************************
     //Генерирование массива аргументов
+    
     arg2=malloc(sizeof(int)*10);
     arg2=[self GenerateArray];
+    int lv=_level;
     for (int i=1; i<=10; i++)
     {
-        arg1[i-1]=2;
+        arg1[i-1]=lv;
     }
     //**************************************
     [self OutputExampleToUILable:0];
@@ -108,9 +110,14 @@ int GameStep;
         {
             NSLog(@"ответ неправильный");
         }
+    //_level=(GameView)self.level;
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+-(void)setIndexPath:(NSInteger) index
+{
+    _level=index;
 }
 - (BOOL) prefersStatusBarHidden
 {
@@ -128,8 +135,18 @@ int GameStep;
 -(void)GameLoop
 
 {GameStep++;
-    [self OutputExampleToUILable:GameStep];
-    [self ShowGameStep:GameStep];
+    if(GameStep>=10)
+    {
+        
+    //подведение итогов
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
+    {
+        [self OutputExampleToUILable:GameStep];
+        [self ShowGameStep:GameStep];
+    }
+       
 }
 
 -(IBAction)press1Button:(id)sender

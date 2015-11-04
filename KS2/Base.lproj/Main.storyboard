@@ -109,18 +109,6 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backcell.png" translatesAutoresizingMaskIntoConstraints="NO" id="3Mv-BQ-mRC">
                                             <rect key="frame" x="0.0" y="0.0" width="332" height="126"/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6O-RV-uGu">
-                                            <rect key="frame" x="115" y="78" width="162" height="33"/>
-                                            <color key="backgroundColor" red="0.15294118230000001" green="0.5176470876" blue="0.29019609089999998" alpha="1" colorSpace="deviceRGB"/>
-                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
-                                            <state key="normal" title="УЧИТЬ">
-                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <segue destination="0bv-ih-dfl" kind="presentation" modalTransitionStyle="crossDissolve" id="vCx-wY-1SB"/>
-                                            </connections>
-                                        </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="0hQ-d3-ayK">
                                             <rect key="frame" x="15" y="33" width="82" height="82"/>
                                         </imageView>
@@ -151,6 +139,19 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6O-RV-uGu">
+                                            <rect key="frame" x="93" y="82" width="162" height="33"/>
+                                            <color key="backgroundColor" red="0.15294118230000001" green="0.5176470876" blue="0.29019609089999998" alpha="1" colorSpace="deviceRGB"/>
+                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                            <state key="normal" title="УЧИТЬ">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="Start:" destination="vPe-hj-0ae" eventType="touchDown" id="mQq-ZS-vQh"/>
+                                                <segue destination="0bv-ih-dfl" kind="presentation" identifier="OpenGame" modalTransitionStyle="crossDissolve" id="vCx-wY-1SB"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>

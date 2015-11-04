@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+NSInteger CurrentLevel;
 
 int main(int argc, char * argv[])
 {
