@@ -9,6 +9,7 @@
 #import "GetTable.h"
 #import "LevelCell.h"
 #import "BlockViewCell.h"
+#import "CellControl.h"
 #import "GameView.h"
 @interface GetTable ()
 
@@ -31,6 +32,24 @@ int level;
 {
     return YES;
 }
+-(IBAction)Exit:(id)sender;
+
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row==0)
+    {
+        return 60.0;
+    }
+    else
+    {
+        return 125.0;
+    }
+    return 100.0;
+    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -48,7 +67,7 @@ int level;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 9;
+    return 10;
 }
 
 
@@ -56,6 +75,14 @@ int level;
     
    // if(indexPath.row<2)
    // {
+    if (indexPath.row==0)
+    {
+        LevelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ControlCellID" forIndexPath:indexPath];
+        return cell;
+
+    }
+    else
+    {
        
     LevelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LevelCellID" forIndexPath:indexPath];
     
@@ -68,7 +95,7 @@ int level;
     
     
     cell.Level.text=@"Уровень ";
-    int Level=indexPath.row+1;
+    int Level=indexPath.row;
     NSString *fileNameLevel=[[NSString stringWithFormat:@"%ld",(long)Level] stringByAppendingFormat:@".png"];
     
     cell.Level.text=[cell.Level.text stringByAppendingString:[NSString stringWithFormat:@"%ld",(long)Level]];
@@ -79,6 +106,7 @@ int level;
     cell.LevelNumber=Level;
     [cell.levelImage setImage:[UIImage imageNamed:fileNameLevel]];
     return cell;
+    }
    // }
     /*
     else
@@ -98,7 +126,7 @@ int level;
     }*/
     // Configure the cell...
     
-    //return nil;
+    return nil;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

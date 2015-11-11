@@ -17,6 +17,7 @@
 		F09A9E711BC5430F00BD936F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09A9E6F1BC5430F00BD936F /* Main.storyboard */; };
 		F09A9E741BC63C7F00BD936F /* GetTable.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A9E731BC63C7F00BD936F /* GetTable.m */; };
 		F09A9E781BC696FD00BD936F /* BlockViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A9E771BC696FD00BD936F /* BlockViewCell.m */; };
+		F0A604D31BF30F0B00AC8963 /* CellControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F0A604D21BF30F0B00AC8963 /* CellControl.m */; };
 		F0C1C1D11BC396A1004B4DEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C1C1D01BC396A1004B4DEF /* main.m */; };
 		F0C1C1D41BC396A1004B4DEF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F0C1C1D31BC396A1004B4DEF /* AppDelegate.m */; };
 		F0C1C1DC1BC396A1004B4DEF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0C1C1DB1BC396A1004B4DEF /* Images.xcassets */; };
@@ -66,6 +67,8 @@
 		F09A9E731BC63C7F00BD936F /* GetTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetTable.m; sourceTree = "<group>"; };
 		F09A9E761BC696FD00BD936F /* BlockViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockViewCell.h; sourceTree = "<group>"; };
 		F09A9E771BC696FD00BD936F /* BlockViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockViewCell.m; sourceTree = "<group>"; };
+		F0A604D11BF30F0B00AC8963 /* CellControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellControl.h; sourceTree = "<group>"; };
+		F0A604D21BF30F0B00AC8963 /* CellControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellControl.m; sourceTree = "<group>"; };
 		F0C1C1CB1BC396A1004B4DEF /* KS2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KS2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C1C1CF1BC396A1004B4DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0C1C1D01BC396A1004B4DEF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -123,6 +126,7 @@
 		F09A9E501BC4BD0D00BD936F /* GetLevel */ = {
 			isa = PBXGroup;
 			children = (
+				F0A604D01BF30E6700AC8963 /* CellUilContorl */,
 				F09A9E751BC696DE00BD936F /* CellBlockLevel */,
 				F09A9E591BC4BD5F00BD936F /* CellView */,
 				F09A9E581BC4BD5500BD936F /* TableView */,
@@ -183,6 +187,15 @@
 				F09A9E771BC696FD00BD936F /* BlockViewCell.m */,
 			);
 			name = CellBlockLevel;
+			sourceTree = "<group>";
+		};
+		F0A604D01BF30E6700AC8963 /* CellUilContorl */ = {
+			isa = PBXGroup;
+			children = (
+				F0A604D11BF30F0B00AC8963 /* CellControl.h */,
+				F0A604D21BF30F0B00AC8963 /* CellControl.m */,
+			);
+			name = CellUilContorl;
 			sourceTree = "<group>";
 		};
 		F0C1C1C21BC396A1004B4DEF = {
@@ -382,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F09A9E5F1BC4BD9F00BD936F /* GameView.m in Sources */,
+				F0A604D31BF30F0B00AC8963 /* CellControl.m in Sources */,
 				F09A9E781BC696FD00BD936F /* BlockViewCell.m in Sources */,
 				F03630B71BD75DEA00372CF2 /* ViewController.m in Sources */,
 				F09A9E741BC63C7F00BD936F /* GetTable.m in Sources */,

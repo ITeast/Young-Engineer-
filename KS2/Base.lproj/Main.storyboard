@@ -101,13 +101,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ControlCellID" rowHeight="60" id="J8U-Md-Lnh" customClass="CellControl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J8U-Md-Lnh" id="WaZ-Do-F7j">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backcell.png" translatesAutoresizingMaskIntoConstraints="NO" id="rFV-Cc-RI6">
+                                            <rect key="frame" x="-6" y="-49" width="332" height="126"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPN-7B-V87" userLabel="Г">
+                                            <rect key="frame" x="8" y="-1" width="147" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <state key="normal" title="Главное меню">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="Exit:" destination="K2c-Fa-3qC" eventType="touchUpInside" id="hik-Fn-C89"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LevelCellID" rowHeight="125" id="vPe-hj-0ae" customClass="LevelCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vPe-hj-0ae" id="c6Z-SY-CNe">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backcell.png" translatesAutoresizingMaskIntoConstraints="NO" id="3Mv-BQ-mRC">
-                                            <rect key="frame" x="0.0" y="0.0" width="332" height="126"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="332" height="125"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="0hQ-d3-ayK">
                                             <rect key="frame" x="15" y="33" width="82" height="82"/>
@@ -133,14 +156,8 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BWd-9U-ftC">
                                             <rect key="frame" x="247" y="37" width="30" height="30"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Уровень 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFL-cv-t3q">
-                                            <rect key="frame" x="17" y="8" width="300" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6O-RV-uGu">
-                                            <rect key="frame" x="93" y="82" width="162" height="33"/>
+                                            <rect key="frame" x="115" y="80" width="162" height="33"/>
                                             <color key="backgroundColor" red="0.15294118230000001" green="0.5176470876" blue="0.29019609089999998" alpha="1" colorSpace="deviceRGB"/>
                                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
                                             <state key="normal" title="УЧИТЬ">
@@ -152,6 +169,12 @@
                                                 <segue destination="0bv-ih-dfl" kind="presentation" identifier="OpenGame" modalTransitionStyle="crossDissolve" id="vCx-wY-1SB"/>
                                             </connections>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Уровень 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFL-cv-t3q">
+                                            <rect key="frame" x="8" y="8" width="300" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -172,9 +195,6 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EPQ-eE-ZXa" id="Y6K-Ah-Veq">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backcell.png" translatesAutoresizingMaskIntoConstraints="NO" id="rFV-Cc-RI6">
-                                            <rect key="frame" x="-6" y="-1" width="332" height="126"/>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Уровень 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkI-hC-wy2">
                                             <rect key="frame" x="17" y="8" width="300" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -191,7 +211,7 @@
                                                     <rect key="frame" x="130" y="17" width="60" height="60"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Для разблокировки завершите предыдущий уровень" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLz-1I-HCX">
-                                                    <rect key="frame" x="8" y="79" width="300" height="41"/>
+                                                    <rect key="frame" x="8" y="42" width="300" height="41"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -217,7 +237,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dGd-ap-fXq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="313" y="100"/>
+            <point key="canvasLocation" x="310" y="78"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="kaY-ti-7LK">
@@ -251,22 +271,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="back.png" translatesAutoresizingMaskIntoConstraints="NO" id="6Iy-Ad-G0s">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                                <rect key="frame" x="0.0" y="-32" width="320" height="600"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkn-dZ-tqa">
-                                <rect key="frame" x="12" y="405" width="68" height="64"/>
-                                <color key="backgroundColor" red="0.14901961386203766" green="0.51372551918029785" blue="0.28627452254295349" alpha="1" colorSpace="deviceRGB"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="35"/>
-                                <state key="normal" title="5">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="press1Button:" destination="0bv-ih-dfl" eventType="touchUpInside" id="2xW-ut-4Tg"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07F-FV-OlB">
-                                <rect key="frame" x="88" y="405" width="68" height="64"/>
+                                <rect key="frame" x="93" y="336" width="68" height="64"/>
                                 <color key="backgroundColor" red="0.14901961386203766" green="0.51372551918029785" blue="0.28627452254295349" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="35"/>
                                 <state key="normal" title="7">
@@ -278,7 +286,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ckW-Xf-X4x">
-                                <rect key="frame" x="164" y="405" width="68" height="64"/>
+                                <rect key="frame" x="169" y="336" width="68" height="64"/>
                                 <color key="backgroundColor" red="0.14901961386203766" green="0.51372551918029785" blue="0.28627452254295349" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="35"/>
                                 <state key="normal" title="8">
@@ -290,7 +298,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NT-ST-S0d">
-                                <rect key="frame" x="240" y="405" width="68" height="64"/>
+                                <rect key="frame" x="245" y="336" width="68" height="64"/>
                                 <color key="backgroundColor" red="0.14901961386203766" green="0.51372551918029785" blue="0.28627452254295349" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="35"/>
                                 <state key="normal" title="3">
@@ -302,7 +310,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Выберите ответ:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtU-UN-OpQ">
-                                <rect key="frame" x="16" y="363" width="288" height="21"/>
+                                <rect key="frame" x="16" y="289" width="288" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -320,25 +328,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" fixedFrame="YES" image="chalkboard.png" translatesAutoresizingMaskIntoConstraints="NO" id="HPi-Mc-WjQ">
-                                <rect key="frame" x="0.0" y="155" width="320" height="199"/>
+                                <rect key="frame" x="7" y="82" width="320" height="199"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="comic-md.png" translatesAutoresizingMaskIntoConstraints="NO" id="dfn-g7-qUP">
-                                <rect key="frame" x="41" y="61" width="239" height="147"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lari_think.png" translatesAutoresizingMaskIntoConstraints="NO" id="pPV-ZG-CYd">
-                                <rect key="frame" x="128" y="154" width="200" height="200"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Вот это примерчик! Надо подумать" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMV-zD-Exd">
-                                <rect key="frame" x="53" y="67" width="202" height="107"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2x4=?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3K-Wx-jsu">
-                                <rect key="frame" x="0.0" y="205" width="219" height="80"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="35"/>
+                                <rect key="frame" x="51" y="128" width="219" height="80"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="56"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkn-dZ-tqa">
+                                <rect key="frame" x="16" y="336" width="68" height="64"/>
+                                <color key="backgroundColor" red="0.14901961386203766" green="0.51372551918029785" blue="0.28627452254295349" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="35"/>
+                                <state key="normal" title="5">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="press1Button:" destination="0bv-ih-dfl" eventType="touchUpInside" id="2xW-ut-4Tg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -355,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4n-wF-pMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="952" y="174"/>
+            <point key="canvasLocation" x="906" y="-18"/>
         </scene>
     </scenes>
     <resources>
@@ -364,8 +373,6 @@
         <image name="backcell.png" width="332" height="126"/>
         <image name="chalkboard.png" width="640" height="438"/>
         <image name="close.png" width="512" height="512"/>
-        <image name="comic-md.png" width="297" height="192"/>
         <image name="happy_larri.png" width="600" height="509"/>
-        <image name="lari_think.png" width="600" height="807"/>
     </resources>
 </document>
