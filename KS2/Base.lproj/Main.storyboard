@@ -353,30 +353,30 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jdu-y0-2V3">
-                                <rect key="frame" x="15" y="142" width="290" height="284"/>
+                                <rect key="frame" x="25" y="142" width="270" height="284"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Qa-4c-phJ">
-                                        <rect key="frame" x="64" y="96" width="30" height="29"/>
+                                        <rect key="frame" x="54" y="96" width="30" height="29"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nbw-Fe-KnG">
-                                        <rect key="frame" x="97" y="96" width="30" height="30"/>
+                                        <rect key="frame" x="87" y="96" width="30" height="30"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VDa-0q-iWU">
-                                        <rect key="frame" x="130" y="96" width="30" height="30"/>
+                                        <rect key="frame" x="120" y="96" width="30" height="30"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebr-f0-db6">
-                                        <rect key="frame" x="163" y="96" width="30" height="30"/>
+                                        <rect key="frame" x="153" y="96" width="30" height="30"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RZp-mw-2rq">
-                                        <rect key="frame" x="196" y="96" width="30" height="30"/>
+                                        <rect key="frame" x="186" y="96" width="30" height="30"/>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Game Over" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1t9-tf-f6w">
-                                        <rect key="frame" x="79" y="34" width="132" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Game Over" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1t9-tf-f6w">
+                                        <rect key="frame" x="35" y="36" width="200" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGM-u1-jhf">
-                                        <rect key="frame" x="105" y="193" width="80" height="30"/>
+                                        <rect key="frame" x="95" y="193" width="80" height="30"/>
                                         <state key="normal" title="Завершить">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -385,8 +385,8 @@
                                             <action selector="Exit:" destination="0bv-ih-dfl" eventType="touchUpInside" id="wA9-bx-Q09"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Правильно решено: 5/10" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O01-or-BTz">
-                                        <rect key="frame" x="51" y="143" width="188" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Правильно решено: 5/10" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O01-or-BTz">
+                                        <rect key="frame" x="41" y="143" width="188" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>

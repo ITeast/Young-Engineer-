@@ -137,16 +137,19 @@ int GameStep;
 }
 -(void)AnimationBackground
 {
+    self.Form.frame=CGRectMake(-300.0, self.Form.frame.origin.y, self.Form.frame.size.width, self.Form.frame.size.height);
     self.Background.alpha=0.0;
     [UIView animateWithDuration:0.8 animations:^(void)
       {
+          self.Form.frame=CGRectMake(25, self.Form.frame.origin.y, self.Form.frame.size.width, self.Form.frame.size.height);
           self.Background.alpha=0.8;
       }
-completion:^(BOOL finished)
-{
-    self.Background.alpha=0.8;
-}];
-     }
+     completion:^(BOOL finished)
+     {
+         self.Form.frame=CGRectMake(25, self.Form.frame.origin.y, self.Form.frame.size.width, self.Form.frame.size.height);
+        self.Background.alpha=0.8;
+     }];
+}
 
 -(IBAction)Exit:(id)sender
 
