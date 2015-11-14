@@ -74,6 +74,9 @@ int GameStep;
 }
 - (void)viewDidLoad  {
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    [_Background setHidden:YES];
+    [_Form setHidden:YES];
+
     //**************************************
     //Генерирование массива аргументов
     
@@ -132,6 +135,25 @@ int GameStep;
 {
     _GameScore.text=[NSString stringWithFormat:@"Ваш счет: %d",GameResult];
 }
+-(void)AnimationBackground
+{
+    self.Background.alpha=0.0;
+    [UIView animateWithDuration:0.8 animations:^(void)
+      {
+          self.Background.alpha=0.8;
+      }
+completion:^(BOOL finished)
+{
+    self.Background.alpha=0.8;
+}];
+     }
+
+-(IBAction)Exit:(id)sender
+
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
 -(void)GameLoop
 
 {GameStep++;
@@ -139,7 +161,10 @@ int GameStep;
     {
         
     //подведение итогов
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [_Background setHidden:NO];
+        [_Form setHidden:NO];
+        [self AnimationBackground];
+        //[self dismissViewControllerAnimated:YES completion:nil];
     }
     else
     {

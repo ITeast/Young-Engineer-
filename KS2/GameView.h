@@ -19,5 +19,11 @@
 @property (nonatomic,strong)IBOutlet UILabel *GameScore;
 @property (nonatomic,strong)IBOutlet UILabel *Example;
 -(void)setIndexPath:(NSInteger) index;
+//aohvf gjldtltyb
+@property (nonatomic, strong) IBOutlet UIView *Background;
+@property (nonatomic, strong) IBOutlet UIView *Form;
+@property (nonatomic, strong) IBOutlet UIView *Title;
+@property (nonatomic, strong) IBOutlet UIView *ResultLable;
+-(IBAction)Exit:(id)sender;
 @end
 
