@@ -158,8 +158,9 @@ int GameStep;
     
 }
 -(void)GameLoop
-
-{GameStep++;
+{
+//Функция игрового шага
+GameStep++;
     if(GameStep>=10)
     {
         
