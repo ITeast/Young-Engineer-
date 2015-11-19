@@ -158,11 +158,6 @@ int GameStep;
     
 }
 -(void)GameLoop
-<<<<<<< HEAD
-
-{
-    GameStep++;
-=======
 {
 //Функция игрового шага
 GameStep++;
