@@ -14,7 +14,49 @@
 
 @implementation StartView
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *LevelUnlock= [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"ar1"]];
+    NSMutableArray *LevelCountStar= [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"ar2"]];
+    NSMutableArray *LevelRightAnswer= [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"ar3"]];
+    
+   
+    if([LevelUnlock count]!=0 && [LevelCountStar count]!=0 && LevelCountStar!=nil && LevelUnlock!=nil)
+    {
+        //Массив задан он существует
+        NSNumber *ik=[LevelUnlock objectAtIndex:0];
+        
+    }
+    else
+    {
+        
+        NSMutableArray *LevelCountStar=[[NSMutableArray alloc] init];
+        NSMutableArray *LevelUnlock=[[NSMutableArray alloc]init];
+        NSMutableArray *LevelRightAnswer=[[NSMutableArray alloc]init];
+        for(int i=0; i<10; i++)
+        {
+            if(i==0)
+            {
+                [LevelUnlock addObject:[NSNumber numberWithInt:1]];
+            }
+            else
+            {
+                [LevelUnlock addObject:[NSNumber numberWithInt:0]];
+            }
+            [LevelCountStar addObject:[NSNumber numberWithInt:0]];
+            [LevelRightAnswer addObject:[NSNumber numberWithInt:0]];
+        }
+        [[NSUserDefaults standardUserDefaults] setObject:LevelUnlock forKey:@"ar1"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [[NSUserDefaults standardUserDefaults] setObject:LevelCountStar forKey:@"ar2"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [[NSUserDefaults standardUserDefaults] setObject:LevelRightAnswer forKey:@"ar3"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+   // [[NSUserDefaults standardUserDefaults] setObject:yourMutableArray forKey:@"Key"];
+    
+    
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     _btn1.layer.cornerRadius = 15; // this value vary as per your desire
     _btn2.layer.cornerRadius = 15; // this value vary as per your desire

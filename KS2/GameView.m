@@ -139,7 +139,7 @@ int GameStep;
 {
     self.Form.frame=CGRectMake(-300.0, self.Form.frame.origin.y, self.Form.frame.size.width, self.Form.frame.size.height);
     self.Background.alpha=0.0;
-    [UIView animateWithDuration:0.8 animations:^(void)
+    [UIView animateWithDuration:0.5 animations:^(void)
       {
           self.Form.frame=CGRectMake(25, self.Form.frame.origin.y, self.Form.frame.size.width, self.Form.frame.size.height);
           self.Background.alpha=0.8;
@@ -163,10 +163,26 @@ int GameStep;
     if(GameStep>=10)
     {
         
-    //подведение итогов
+        //подведение итогов
+        [self ShowGameStep:10];
         [_Background setHidden:NO];
         [_Form setHidden:NO];
         [self AnimationBackground];
+        if(result>7)
+        {
+            self.TitleGame.text=@"Поздравляем!";
+            self.ResultLable.text=[NSString stringWithFormat:@"Ваш счет: %d",result];
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            NSMutableArray *LevelUnlock= [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"ar1"]];
+            int k=_level;
+            
+            [LevelUnlock replaceObjectAtIndex:k withObject:[NSNumber numberWithInt:1]];
+            
+            [[NSUserDefaults standardUserDefaults] setObject:LevelUnlock forKey:@"ar1"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            
+        }
         //[self dismissViewControllerAnimated:YES completion:nil];
     }
     else

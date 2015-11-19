@@ -22,8 +22,8 @@
 //aohvf gjldtltyb
 @property (nonatomic, strong) IBOutlet UIView *Background;
 @property (nonatomic, strong) IBOutlet UIView *Form;
-@property (nonatomic, strong) IBOutlet UIView *Title;
-@property (nonatomic, strong) IBOutlet UIView *ResultLable;
+@property (nonatomic, strong) IBOutlet UILabel *TitleGame;
+@property (nonatomic, strong) IBOutlet UILabel *ResultLable;
 -(IBAction)Exit:(id)sender;
 @end
 

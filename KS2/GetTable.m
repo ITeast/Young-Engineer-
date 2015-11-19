@@ -42,14 +42,14 @@ int level;
 {
     if(indexPath.row==0)
     {
-        return 60.0;
+        return 38.0;
     }
     else
     {
         return 125.0;
     }
     return 100.0;
-    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -83,29 +83,54 @@ int level;
     }
     else
     {
-       
-    LevelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LevelCellID" forIndexPath:indexPath];
-    
-        if(indexPath.row==0)
-        
-            cell.Result.text=@"Ваш результат: 8/10";
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSMutableArray *LevelUnlock= [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"ar1"]];
+        NSMutableArray *LevelCountStar= [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"ar2"]];
+        NSMutableArray *LevelRightAnswer= [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"ar3"]];
+        NSInteger row=indexPath.row-1;
+        NSNumber *ik=[LevelUnlock objectAtIndex:row];
+        if(ik==[NSNumber numberWithInt:1])
+        {
+            LevelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LevelCellID" forIndexPath:indexPath];
+            
+            if(indexPath.row==0)
+                
+                cell.Result.text=@"Ваш результат: 8/10";
             [cell.Star1 setImage:[UIImage imageNamed:@"star.png"]];
             [cell.Star2 setImage:[UIImage imageNamed:@"star.png"]];
-         
-    
-    
-    cell.Level.text=@"Уровень ";
-    int Level=indexPath.row;
-    NSString *fileNameLevel=[[NSString stringWithFormat:@"%ld",(long)Level] stringByAppendingFormat:@".png"];
-    
-    cell.Level.text=[cell.Level.text stringByAppendingString:[NSString stringWithFormat:@"%ld",(long)Level]];
-    
-    cell.btn1.layer.cornerRadius = 15; // this value vary as per your desire
-  
-    cell.btn1.clipsToBounds = YES;
-    cell.LevelNumber=Level;
-    [cell.levelImage setImage:[UIImage imageNamed:fileNameLevel]];
-    return cell;
+            
+            
+            
+            cell.Level.text=@"Уровень ";
+            int Level=indexPath.row;
+            NSString *fileNameLevel=[[NSString stringWithFormat:@"%ld",(long)Level] stringByAppendingFormat:@".png"];
+            
+            cell.Level.text=[cell.Level.text stringByAppendingString:[NSString stringWithFormat:@"%ld",(long)Level]];
+            
+            cell.btn1.layer.cornerRadius = 15; // this value vary as per your desire
+            
+            cell.btn1.clipsToBounds = YES;
+            cell.LevelNumber=Level;
+            [cell.levelImage setImage:[UIImage imageNamed:fileNameLevel]];
+            return cell;
+            
+        }
+        else
+        {
+            BlockViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BlockCellID" forIndexPath:indexPath];
+            
+            cell.Level.text=@"Уровень ";
+            int Level=indexPath.row;
+            NSString *fileNameLevel=[[NSString stringWithFormat:@"%ld",(long)Level] stringByAppendingFormat:@".png"];
+            
+            cell.Level.text=[cell.Level.text stringByAppendingString:[NSString stringWithFormat:@"%ld",(long)Level]];
+            
+            
+            [cell.levelImage setImage:[UIImage imageNamed:fileNameLevel]];
+            return cell;
+        }
+       
+   
     }
    // }
     /*
