@@ -24,6 +24,10 @@
 @property (nonatomic, strong) IBOutlet UIView *Form;
 @property (nonatomic, strong) IBOutlet UILabel *TitleGame;
 @property (nonatomic, strong) IBOutlet UILabel *ResultLable;
+
+@property (nonatomic,strong)IBOutlet UIImageView *star1;
+@property (nonatomic,strong)IBOutlet UIImageView *star2;
+@property (nonatomic,strong)IBOutlet UIImageView *star3;
 -(IBAction)Exit:(id)sender;
 @end
 

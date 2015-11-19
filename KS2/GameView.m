@@ -159,7 +159,8 @@ int GameStep;
 }
 -(void)GameLoop
 
-{GameStep++;
+{
+    GameStep++;
     if(GameStep>=10)
     {
         
@@ -168,10 +169,27 @@ int GameStep;
         [_Background setHidden:NO];
         [_Form setHidden:NO];
         [self AnimationBackground];
-        if(result>7)
+        if(result>=0 && result<=4)
         {
-            self.TitleGame.text=@"Поздравляем!";
-            self.ResultLable.text=[NSString stringWithFormat:@"Ваш счет: %d",result];
+            self.TitleGame.text=@"Вы полный лузер!";
+            self.ResultLable.text=[NSString stringWithFormat:@"Ваш счет: %d/10",result];
+        
+        }
+        else if(result>=5 && result<=6)
+        {
+            self.TitleGame.text=@"Неплохо!";
+            self.ResultLable.text=[NSString stringWithFormat:@"Ваш счет: %d/10",result];
+
+        }
+        else if(result>=7 && result<=9)
+        {
+            self.TitleGame.text=@"Сойдет!";
+            self.ResultLable.text=[NSString stringWithFormat:@"Ваш счет: %d/10",result];
+        }
+        else if(result==10)
+        {
+            self.TitleGame.text=@"Отлично!";
+            self.ResultLable.text=[NSString stringWithFormat:@"Ваш счет: %d/10",result];
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
             NSMutableArray *LevelUnlock= [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"ar1"]];
             int k=_level;
@@ -180,9 +198,8 @@ int GameStep;
             
             [[NSUserDefaults standardUserDefaults] setObject:LevelUnlock forKey:@"ar1"];
             [[NSUserDefaults standardUserDefaults] synchronize];
-            
-            
         }
+        [self ShowStarAnimetion];
         //[self dismissViewControllerAnimated:YES completion:nil];
     }
     else
@@ -191,6 +208,53 @@ int GameStep;
         [self ShowGameStep:GameStep];
     }
        
+}
+-(void)SetArray:(int)user_result count_start:(int) count_star
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *LevelCountStar= [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"ar2"]];
+    NSMutableArray *LevelResult= [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"ar3"]];
+    int k=_level;
+    
+    [LevelCountStar replaceObjectAtIndex:k withObject:[NSNumber numberWithInt:count_star]];
+    [LevelResult replaceObjectAtIndex:k withObject:[NSNumber numberWithInt:user_result]];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:LevelCountStar forKey:@"ar2"];
+    [[NSUserDefaults standardUserDefaults] setObject:LevelResult forKey:@"ar3"];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+-(void)ShowStarAnimetion
+{
+    self.star1.alpha=0.0;
+    self.star2.alpha=0.0;
+    self.star3.alpha=0.0;
+    [UIView animateWithDuration:2 animations:^(void)
+     {
+          self.star1.alpha=0.8;
+     }
+                     completion:^(BOOL finished)
+     {
+         self.star1.alpha=0.8;
+         [UIView animateWithDuration:2 animations:^(void)
+          {
+              self.star2.alpha=0.8;
+          }
+                          completion:^(BOOL finished)
+          {
+              self.star2.alpha=0.8;
+              [UIView animateWithDuration:2 animations:^(void)
+               {
+                   self.star3.alpha=0.8;
+               }
+                               completion:^(BOOL finished)
+               {
+                   self.star3.alpha=0.8;
+               }];
+          }];
+         
+     }];
+    
 }
 
 -(IBAction)press1Button:(id)sender
