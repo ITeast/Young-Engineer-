@@ -158,9 +158,15 @@ int GameStep;
     
 }
 -(void)GameLoop
+<<<<<<< HEAD
 
 {
     GameStep++;
+=======
+{
+//Функция игрового шага
+GameStep++;
+>>>>>>> origin/master
     if(GameStep>=10)
     {
         
