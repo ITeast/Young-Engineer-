@@ -161,7 +161,6 @@ int GameStep;
 {
 //Функция игрового шага
 GameStep++;
->>>>>>> origin/master
     if(GameStep>=10)
     {
         
@@ -230,21 +229,21 @@ GameStep++;
     self.star1.alpha=0.0;
     self.star2.alpha=0.0;
     self.star3.alpha=0.0;
-    [UIView animateWithDuration:2 animations:^(void)
+    [UIView animateWithDuration:0.5 animations:^(void)
      {
           self.star1.alpha=0.8;
      }
                      completion:^(BOOL finished)
      {
          self.star1.alpha=0.8;
-         [UIView animateWithDuration:2 animations:^(void)
+         [UIView animateWithDuration:0.5 animations:^(void)
           {
               self.star2.alpha=0.8;
           }
                           completion:^(BOOL finished)
           {
               self.star2.alpha=0.8;
-              [UIView animateWithDuration:2 animations:^(void)
+              [UIView animateWithDuration:0.5 animations:^(void)
                {
                    self.star3.alpha=0.8;
                }
