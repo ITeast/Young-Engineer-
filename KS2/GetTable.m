@@ -50,6 +50,10 @@ int level;
     }
     return 100.0;
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -92,16 +96,34 @@ int level;
         if(ik==[NSNumber numberWithInt:1])
         {
             LevelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LevelCellID" forIndexPath:indexPath];
-            
-            if(indexPath.row==0)
                 
-                cell.Result.text=@"Ваш результат: 8/10";
-            [cell.Star1 setImage:[UIImage imageNamed:@"star.png"]];
-            [cell.Star2 setImage:[UIImage imageNamed:@"star.png"]];
+                int resultINT=[[LevelRightAnswer objectAtIndex:row] intValue];
+             int CountStar=[[LevelCountStar objectAtIndex:row] intValue];
+            cell.Result.text=[NSString stringWithFormat:@"Ваш результат %d/10" ,resultINT];
+            if(CountStar==0)
+            {}
+            else if(CountStar==1)
+            {
+            
+                [cell.Star1 setImage:[UIImage imageNamed:@"star.png"]];
+            }
+            else if(CountStar==2)
+            {
+                [cell.Star1 setImage:[UIImage imageNamed:@"star.png"]];
+                [cell.Star2 setImage:[UIImage imageNamed:@"star.png"]];
+            }
+            else if(CountStar==3)
+            {
+                [cell.Star1 setImage:[UIImage imageNamed:@"star.png"]];
+                [cell.Star2 setImage:[UIImage imageNamed:@"star.png"]];
+                [cell.Star3 setImage:[UIImage imageNamed:@"star.png"]];
+            }
             
             
             
             cell.Level.text=@"Уровень ";
+        
+        
             int Level=indexPath.row;
             NSString *fileNameLevel=[[NSString stringWithFormat:@"%ld",(long)Level] stringByAppendingFormat:@".png"];
             
@@ -132,6 +154,7 @@ int level;
        
    
     }
+   
    // }
     /*
     else

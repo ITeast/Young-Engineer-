@@ -73,6 +73,12 @@ int GameStep;
 
 }
 - (void)viewDidLoad  {
+    //Музыка и звуки
+    NSURL *sound=[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"answer_right" ofType:@"mp3"]];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef) sound, &PlaySoundRightAnswer);
+    NSURL *errorSound=[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Error" ofType:@"mp3"]];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef) errorSound, &PlaySoundWrongAnswer);
+
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     [_Background setHidden:YES];
     [_Form setHidden:YES];
@@ -105,15 +111,7 @@ int GameStep;
     [self ShowGameScore:result];
     [self ShowGameStep:GameStep];
     
-    if([self AreUserAnswerRight:1 Arg2:2 Answer:2])
-        {
-            NSLog(@"Ответ правильный");
-        }
-        else
-        {
-            NSLog(@"ответ неправильный");
-        }
-    //_level=(GameView)self.level;
+       //_level=(GameView)self.level;
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -168,23 +166,28 @@ GameStep++;
         [self ShowGameStep:10];
         [_Background setHidden:NO];
         [_Form setHidden:NO];
+        int ArgumentCountStar=0;
         [self AnimationBackground];
         if(result>=0 && result<=4)
         {
             self.TitleGame.text=@"Вы полный лузер!";
             self.ResultLable.text=[NSString stringWithFormat:@"Ваш счет: %d/10",result];
-        
+            [self SetArray:result count_start:0];
+            ArgumentCountStar=0;
         }
         else if(result>=5 && result<=6)
         {
             self.TitleGame.text=@"Неплохо!";
             self.ResultLable.text=[NSString stringWithFormat:@"Ваш счет: %d/10",result];
-
+            [self SetArray:result count_start:1];
+            ArgumentCountStar=1;
         }
         else if(result>=7 && result<=9)
         {
             self.TitleGame.text=@"Сойдет!";
             self.ResultLable.text=[NSString stringWithFormat:@"Ваш счет: %d/10",result];
+            [self SetArray:result count_start:2];
+            ArgumentCountStar=2;
         }
         else if(result==10)
         {
@@ -198,8 +201,11 @@ GameStep++;
             
             [[NSUserDefaults standardUserDefaults] setObject:LevelUnlock forKey:@"ar1"];
             [[NSUserDefaults standardUserDefaults] synchronize];
+             [self SetArray:result count_start:3];
+            ArgumentCountStar=3;
         }
-        [self ShowStarAnimetion];
+        [self ShowStarAnimation: ArgumentCountStar];
+       
         //[self dismissViewControllerAnimated:YES completion:nil];
     }
     else
@@ -214,7 +220,7 @@ GameStep++;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSMutableArray *LevelCountStar= [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"ar2"]];
     NSMutableArray *LevelResult= [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"ar3"]];
-    int k=_level;
+    int k=_level-1;
     
     [LevelCountStar replaceObjectAtIndex:k withObject:[NSNumber numberWithInt:count_star]];
     [LevelResult replaceObjectAtIndex:k withObject:[NSNumber numberWithInt:user_result]];
@@ -224,11 +230,13 @@ GameStep++;
     
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
--(void)ShowStarAnimetion
+-(void)ShowStarAnimation: (int) CountStarShow
 {
     self.star1.alpha=0.0;
     self.star2.alpha=0.0;
     self.star3.alpha=0.0;
+    if(CountStarShow!=0)
+    {
     [UIView animateWithDuration:0.5 animations:^(void)
      {
           self.star1.alpha=0.8;
@@ -236,13 +244,18 @@ GameStep++;
                      completion:^(BOOL finished)
      {
          self.star1.alpha=0.8;
+         if(CountStarShow>1)
+         {
          [UIView animateWithDuration:0.5 animations:^(void)
           {
               self.star2.alpha=0.8;
+    
           }
                           completion:^(BOOL finished)
           {
               self.star2.alpha=0.8;
+              if(CountStarShow>2)
+              {
               [UIView animateWithDuration:0.5 animations:^(void)
                {
                    self.star3.alpha=0.8;
@@ -251,9 +264,11 @@ GameStep++;
                {
                    self.star3.alpha=0.8;
                }];
+              }
           }];
-         
-     }];
+         }
+   }];
+    }
     
 }
 
@@ -312,6 +327,11 @@ GameStep++;
     [self GameLoop];
     
 }
+-(void)loadImage
+{
+    //Поток в которо проигрывается музыкальный файл
+    AudioServicesPlaySystemSound(PlaySoundRightAnswer);
+}
 
 -(bool) AreUserAnswerRight:(int) argument1 Arg2:(int) argument2 Answer: (int) userAnswer
 {
@@ -320,6 +340,16 @@ GameStep++;
     if(RightAnswer==userAnswer)
     {
         Answer=TRUE;
+        NSOperationQueue *queue=[NSOperationQueue new];
+        NSInvocationOperation *operation=[[NSInvocationOperation alloc]initWithTarget:self selector:@selector(loadImage) object:nil];
+        [queue addOperation:operation];
+        
+    }
+    else
+    {
+        
+        AudioServicesPlaySystemSound(PlaySoundWrongAnswer);
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     }
     
     return Answer;

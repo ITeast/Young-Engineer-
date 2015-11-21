@@ -11,6 +11,9 @@
 		F010F8D31BF750B100193278 /* bottomlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F010F8CF1BF750B100193278 /* bottomlogo@2x.png */; };
 		F010F8D41BF750B100193278 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F010F8D01BF750B100193278 /* logo.png */; };
 		F010F8D51BF750B100193278 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F010F8D11BF750B100193278 /* logo@2x.png */; };
+		F040A0E91C00A25C001988D3 /* answer_right.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F040A0E81C00A25C001988D3 /* answer_right.mp3 */; };
+		F040A0EC1C00A354001988D3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F040A0EB1C00A354001988D3 /* AudioToolbox.framework */; };
+		F040A0EE1C00A6A4001988D3 /* Error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F040A0ED1C00A6A4001988D3 /* Error.mp3 */; };
 		F09A9E541BC4BD3000BD936F /* StartView.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A9E531BC4BD3000BD936F /* StartView.m */; };
 		F09A9E5C1BC4BD7D00BD936F /* LevelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A9E5B1BC4BD7D00BD936F /* LevelCell.m */; };
 		F09A9E5F1BC4BD9F00BD936F /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A9E5E1BC4BD9F00BD936F /* GameView.m */; };
@@ -69,6 +72,10 @@
 		F010F8CF1BF750B100193278 /* bottomlogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottomlogo@2x.png"; sourceTree = "<group>"; };
 		F010F8D01BF750B100193278 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		F010F8D11BF750B100193278 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		F040A0E81C00A25C001988D3 /* answer_right.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = answer_right.mp3; sourceTree = "<group>"; };
+		F040A0EA1C00A354001988D3 /* Larry Math.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Larry Math.entitlements"; sourceTree = "<group>"; };
+		F040A0EB1C00A354001988D3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		F040A0ED1C00A6A4001988D3 /* Error.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Error.mp3; sourceTree = "<group>"; };
 		F09A9E521BC4BD3000BD936F /* StartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartView.h; sourceTree = "<group>"; };
 		F09A9E531BC4BD3000BD936F /* StartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartView.m; sourceTree = "<group>"; };
 		F09A9E5A1BC4BD7D00BD936F /* LevelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelCell.h; sourceTree = "<group>"; };
@@ -128,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F040A0EC1C00A354001988D3 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +149,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F040A0E71C00A25C001988D3 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				F040A0ED1C00A6A4001988D3 /* Error.mp3 */,
+				F040A0E81C00A25C001988D3 /* answer_right.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		F09A9E4F1BC4BD0600BD936F /* StartView */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +258,8 @@
 		F0C1C1C21BC396A1004B4DEF = {
 			isa = PBXGroup;
 			children = (
+				F040A0EB1C00A354001988D3 /* AudioToolbox.framework */,
+				F040A0EA1C00A354001988D3 /* Larry Math.entitlements */,
 				F0C1C1CD1BC396A1004B4DEF /* KS2 */,
 				F0C1C1E71BC396A1004B4DEF /* KS2Tests */,
 				F0C1C1CC1BC396A1004B4DEF /* Products */,
@@ -259,6 +278,7 @@
 		F0C1C1CD1BC396A1004B4DEF /* KS2 */ = {
 			isa = PBXGroup;
 			children = (
+				F040A0E71C00A25C001988D3 /* Music */,
 				F09A9E611BC5369200BD936F /* Images */,
 				F09A9E511BC4BD1500BD936F /* GameView */,
 				F09A9E501BC4BD0D00BD936F /* GetLevel */,
@@ -365,6 +385,12 @@
 				TargetAttributes = {
 					F0C1C1CA1BC396A1004B4DEF = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = EFWY599QNH;
+						SystemCapabilities = {
+							com.apple.InterAppAudio = {
+								enabled = 1;
+							};
+						};
 					};
 					F0C1C1E31BC396A1004B4DEF = {
 						CreatedOnToolsVersion = 6.2;
@@ -424,8 +450,10 @@
 				F010F8D51BF750B100193278 /* logo@2x.png in Resources */,
 				F0C688B61BC920D0004058B5 /* 9.png in Resources */,
 				F010F8D21BF750B100193278 /* bottomlogo.png in Resources */,
+				F040A0E91C00A25C001988D3 /* answer_right.mp3 in Resources */,
 				F0F855051BF7367F00B1692F /* mession.png in Resources */,
 				F09A9E631BC5369200BD936F /* lari_think.png in Resources */,
+				F040A0EE1C00A6A4001988D3 /* Error.mp3 in Resources */,
 				F0C688B31BC920D0004058B5 /* 6.png in Resources */,
 				F0C1C1DC1BC396A1004B4DEF /* Images.xcassets in Resources */,
 				F0F8550D1BF7382400B1692F /* mession@2x.png in Resources */,
@@ -580,6 +608,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Larry Math.entitlements";
 				INFOPLIST_FILE = KS2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -591,6 +620,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Larry Math.entitlements";
 				INFOPLIST_FILE = KS2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

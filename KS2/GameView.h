@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface GameView : UIViewController
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h> //
+@interface GameView : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
+{
+    SystemSoundID PlaySoundRightAnswer;
+    SystemSoundID PlaySoundWrongAnswer;
+    
+}
 
 @property NSInteger level;
 @property (nonatomic,strong)IBOutlet UIButton *btn1;
