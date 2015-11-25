@@ -92,25 +92,33 @@ int level;
         NSMutableArray *LevelCountStar= [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"ar2"]];
         NSMutableArray *LevelRightAnswer= [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"ar3"]];
         NSInteger row=indexPath.row-1;
-        NSNumber *ik=[LevelUnlock objectAtIndex:row];
-        if(ik==[NSNumber numberWithInt:1])
+        NSInteger ik=[[LevelUnlock objectAtIndex:row] integerValue];
+        if(ik==1)
         {
             LevelCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LevelCellID" forIndexPath:indexPath];
                 
                 int resultINT=[[LevelRightAnswer objectAtIndex:row] intValue];
              int CountStar=[[LevelCountStar objectAtIndex:row] intValue];
             cell.Result.text=[NSString stringWithFormat:@"Ваш результат %d/10" ,resultINT];
+            
+            cell.Star1.image=nil;
+             cell.Star2.image=nil;
+             cell.Star3.image=nil;
+            
             if(CountStar==0)
             {}
             else if(CountStar==1)
             {
             
                 [cell.Star1 setImage:[UIImage imageNamed:@"star.png"]];
+                [cell.Star2 setImage:nil];
+                [cell.Star3 setImage:nil];
             }
             else if(CountStar==2)
             {
                 [cell.Star1 setImage:[UIImage imageNamed:@"star.png"]];
                 [cell.Star2 setImage:[UIImage imageNamed:@"star.png"]];
+                [cell.Star3 setImage:nil];
             }
             else if(CountStar==3)
             {

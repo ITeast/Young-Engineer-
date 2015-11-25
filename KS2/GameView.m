@@ -78,6 +78,12 @@ int GameStep;
     AudioServicesCreateSystemSoundID((__bridge CFURLRef) sound, &PlaySoundRightAnswer);
     NSURL *errorSound=[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Error" ofType:@"mp3"]];
     AudioServicesCreateSystemSoundID((__bridge CFURLRef) errorSound, &PlaySoundWrongAnswer);
+     NSURL *worrysound=[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Worry" ofType:@"mp3"]];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef) worrysound, &PlaySoundGameOverWorry);
+    NSURL *successsound=[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Success" ofType:@"mp3"]];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef) successsound, &PlaySoundGameOverSuccess);
+    NSURL *starsound=[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Star" ofType:@"mp3"]];
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)starsound, &PlaySoundStar);
 
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     [_Background setHidden:YES];
@@ -88,7 +94,9 @@ int GameStep;
     
     arg2=malloc(sizeof(int)*10);
     arg2=[self GenerateArray];
-    int lv=_level;
+     extern CurrentLevel;
+    _level=CurrentLevel;
+    int lv=CurrentLevel;
     for (int i=1; i<=10; i++)
     {
         arg1[i-1]=lv;
@@ -135,16 +143,17 @@ int GameStep;
 }
 -(void)AnimationBackground
 {
+    CGFloat x_position=self.Form.frame.origin.x;
     self.Form.frame=CGRectMake(-300.0, self.Form.frame.origin.y, self.Form.frame.size.width, self.Form.frame.size.height);
     self.Background.alpha=0.0;
     [UIView animateWithDuration:0.5 animations:^(void)
       {
-          self.Form.frame=CGRectMake(25, self.Form.frame.origin.y, self.Form.frame.size.width, self.Form.frame.size.height);
+          self.Form.frame=CGRectMake(x_position, self.Form.frame.origin.y, self.Form.frame.size.width, self.Form.frame.size.height);
           self.Background.alpha=0.8;
       }
      completion:^(BOOL finished)
      {
-         self.Form.frame=CGRectMake(25, self.Form.frame.origin.y, self.Form.frame.size.width, self.Form.frame.size.height);
+         self.Form.frame=CGRectMake(x_position, self.Form.frame.origin.y, self.Form.frame.size.width, self.Form.frame.size.height);
         self.Background.alpha=0.8;
      }];
 }
@@ -170,27 +179,39 @@ GameStep++;
         [self AnimationBackground];
         if(result>=0 && result<=4)
         {
+            AudioServicesPlaySystemSound(PlaySoundGameOverWorry);
             self.TitleGame.text=@"Вы полный лузер!";
             self.ResultLable.text=[NSString stringWithFormat:@"Ваш счет: %d/10",result];
             [self SetArray:result count_start:0];
             ArgumentCountStar=0;
         }
-        else if(result>=5 && result<=6)
+        else if(result>=5 && result<=7)
         {
+            AudioServicesPlaySystemSound(PlaySoundGameOverWorry);
             self.TitleGame.text=@"Неплохо!";
             self.ResultLable.text=[NSString stringWithFormat:@"Ваш счет: %d/10",result];
             [self SetArray:result count_start:1];
             ArgumentCountStar=1;
         }
-        else if(result>=7 && result<=9)
+        else if(result>=8 && result<=9)
         {
+            AudioServicesPlaySystemSound(PlaySoundGameOverSuccess);
             self.TitleGame.text=@"Сойдет!";
             self.ResultLable.text=[NSString stringWithFormat:@"Ваш счет: %d/10",result];
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            NSMutableArray *LevelUnlock= [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"ar1"]];
+            int k=_level;
+            
+            [LevelUnlock replaceObjectAtIndex:k withObject:[NSNumber numberWithInt:1]];
+            
+            [[NSUserDefaults standardUserDefaults] setObject:LevelUnlock forKey:@"ar1"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             [self SetArray:result count_start:2];
             ArgumentCountStar=2;
         }
         else if(result==10)
         {
+            AudioServicesPlaySystemSound(PlaySoundGameOverSuccess);
             self.TitleGame.text=@"Отлично!";
             self.ResultLable.text=[NSString stringWithFormat:@"Ваш счет: %d/10",result];
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

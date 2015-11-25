@@ -13,6 +13,11 @@
 {
     SystemSoundID PlaySoundRightAnswer;
     SystemSoundID PlaySoundWrongAnswer;
+    SystemSoundID PlaySoundGameOverWorry;
+    SystemSoundID PlaySoundGameOverSuccess;
+    SystemSoundID PlaySoundStar;
+    
+    
     
 }
 
