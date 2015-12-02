@@ -21,6 +21,12 @@
     
 }
 
+@property (nonatomic,strong)IBOutlet UIView *larry;
+@property (nonatomic,strong)IBOutlet UIImageView *larryImage;
+@property (nonatomic,strong)IBOutlet UILabel *larryMessage;
+@property (nonatomic,strong)IBOutlet UIImageView *dialogLarry;
+@property (nonatomic, strong)IBOutlet UIButton *Next;
+
 @property NSInteger level;
 @property (nonatomic,strong)IBOutlet UIButton *btn1;
 @property (nonatomic,strong)IBOutlet UIButton *btn2;
@@ -40,5 +46,6 @@
 @property (nonatomic,strong)IBOutlet UIImageView *star2;
 @property (nonatomic,strong)IBOutlet UIImageView *star3;
 -(IBAction)Exit:(id)sender;
+-(IBAction)NextQuestion:(id)sender;
 @end
 

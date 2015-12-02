@@ -120,6 +120,7 @@ int GameStep;
     [self ShowGameStep:GameStep];
     
        //_level=(GameView)self.level;
+    self.larry.frame=CGRectMake(self.larry.frame.origin.x+320, self.larry.frame.origin.y, self.larry.frame.size.width, self.larry.frame.size.height);
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -180,7 +181,7 @@ GameStep++;
         if(result>=0 && result<=4)
         {
             AudioServicesPlaySystemSound(PlaySoundGameOverWorry);
-            self.TitleGame.text=@"Вы полный лузер!";
+            self.TitleGame.text=@"Очень плохо!";
             self.ResultLable.text=[NSString stringWithFormat:@"Ваш счет: %d/10",result];
             [self SetArray:result count_start:0];
             ArgumentCountStar=0;
@@ -188,7 +189,7 @@ GameStep++;
         else if(result>=5 && result<=7)
         {
             AudioServicesPlaySystemSound(PlaySoundGameOverWorry);
-            self.TitleGame.text=@"Неплохо!";
+            self.TitleGame.text=@"Плохо!";
             self.ResultLable.text=[NSString stringWithFormat:@"Ваш счет: %d/10",result];
             [self SetArray:result count_start:1];
             ArgumentCountStar=1;
@@ -196,7 +197,7 @@ GameStep++;
         else if(result>=8 && result<=9)
         {
             AudioServicesPlaySystemSound(PlaySoundGameOverSuccess);
-            self.TitleGame.text=@"Сойдет!";
+            self.TitleGame.text=@"Хорошо!";
             self.ResultLable.text=[NSString stringWithFormat:@"Ваш счет: %d/10",result];
             NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
             NSMutableArray *LevelUnlock= [[NSMutableArray alloc] initWithArray:[userDefaults objectForKey:@"ar1"]];
@@ -303,8 +304,9 @@ GameStep++;
         //Пользователь ответил правильно
         result++;
         [self ShowGameScore:result];
+        [self GameLoop];
     }
-    [self GameLoop];
+    
     
 }
 -(IBAction)press2Button:(id)sender
@@ -316,9 +318,9 @@ GameStep++;
         //Пользователь ответил правильно
         result++;
         [self ShowGameScore:result];
+        [self GameLoop];
     }
-   
-    [self GameLoop];
+  
 }
 -(IBAction)press3Button:(id)sender
 {
@@ -329,9 +331,10 @@ GameStep++;
         //Пользователь ответил правильно
         result++;
         [self ShowGameScore:result];
+        [self GameLoop];
     }
 
-    [self GameLoop];
+    
     
 }
 -(IBAction)press4Button:(id)sender
@@ -343,10 +346,31 @@ GameStep++;
         //Пользователь ответил правильно
         result++;
         [self ShowGameScore:result];
+        [self GameLoop];
     }
 
-    [self GameLoop];
     
+}
+-(IBAction)NextQuestion:(id)sender
+{
+    CGFloat x_position=self.larry.frame.origin.x;
+    
+    [UIView animateWithDuration:0.5 animations:^(void)
+     {
+         self.larry.frame=CGRectMake(x_position+320, self.larry.frame.origin.y, self.larry.frame.size.width, self.larry.frame.size.height);
+         
+     }
+                     completion:^(BOOL finished)
+     {
+         self.larry.frame=CGRectMake(x_position+320, self.larry.frame.origin.y, self.larry.frame.size.width, self.larry.frame.size.height);
+         
+     }];
+    self.btn1.enabled=true;
+    self.btn2.enabled=true;
+    self.btn3.enabled=true;
+    self.btn4.enabled=true;
+    
+    [self GameLoop];
 }
 -(void)loadImage
 {
@@ -368,6 +392,39 @@ GameStep++;
     }
     else
     {
+     CGSize mySize=self.dialogLarry.frame.size;
+        CGPoint position=self.dialogLarry.frame.origin;
+        self.dialogLarry.frame=CGRectMake(self.dialogLarry.frame.origin.x+200, self.dialogLarry.frame.origin.y+80, mySize.width/10, mySize.height/10);
+        self.Next.hidden=YES;
+        self.larryMessage.hidden=YES;
+        
+        CGFloat x_position=self.larry.frame.origin.x;
+        self.larry.frame=CGRectMake(x_position, self.larry.frame.origin.y, self.larry.frame.size.width, self.larry.frame.size.height);
+        [UIView animateWithDuration:0.5 animations:^(void)
+         {
+             self.larry.frame=CGRectMake(x_position-320, self.larry.frame.origin.y, self.larry.frame.size.width, self.larry.frame.size.height);
+         }
+        completion:^(BOOL finished)
+         {
+             self.larry.frame=CGRectMake(x_position-320, self.larry.frame.origin.y, self.larry.frame.size.width, self.larry.frame.size.height);
+             
+             [UIView animateWithDuration:0.5 animations:^(void)
+              {
+                  self.dialogLarry.frame=CGRectMake(position.x, position.y, mySize.width, mySize.height);
+                  
+              }
+                              completion:^(BOOL finished)
+              {
+                   self.dialogLarry.frame=CGRectMake(position.x, position.y, mySize.width, mySize.height);
+                  self.Next.hidden=NO;
+                  self.larryMessage.hidden=NO;
+                  
+              }];
+         }];
+        self.btn1.enabled=FALSE;
+         self.btn2.enabled=FALSE;
+         self.btn3.enabled=FALSE;
+         self.btn4.enabled=FALSE;
         
         AudioServicesPlaySystemSound(PlaySoundWrongAnswer);
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);

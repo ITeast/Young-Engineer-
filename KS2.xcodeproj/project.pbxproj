@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA2218E71C0EBA47001F6786 /* lrb1.png in Resources */ = {isa = PBXBuildFile; fileRef = EA2218E61C0EBA47001F6786 /* lrb1.png */; };
 		F010F8D21BF750B100193278 /* bottomlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F010F8CE1BF750B100193278 /* bottomlogo.png */; };
 		F010F8D31BF750B100193278 /* bottomlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F010F8CF1BF750B100193278 /* bottomlogo@2x.png */; };
 		F010F8D41BF750B100193278 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F010F8D01BF750B100193278 /* logo.png */; };
@@ -72,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA2218E61C0EBA47001F6786 /* lrb1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lrb1.png; sourceTree = "<group>"; };
 		F010F8CE1BF750B100193278 /* bottomlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bottomlogo.png; sourceTree = "<group>"; };
 		F010F8CF1BF750B100193278 /* bottomlogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottomlogo@2x.png"; sourceTree = "<group>"; };
 		F010F8D01BF750B100193278 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 		F09A9E611BC5369200BD936F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EA2218E61C0EBA47001F6786 /* lrb1.png */,
 				F066A5281C058D14003D7EEF /* backcell2.png */,
 				F010F8CE1BF750B100193278 /* bottomlogo.png */,
 				F010F8CF1BF750B100193278 /* bottomlogo@2x.png */,
@@ -471,6 +474,7 @@
 				F040A0EE1C00A6A4001988D3 /* Error.mp3 in Resources */,
 				F0C688B31BC920D0004058B5 /* 6.png in Resources */,
 				F0C1C1DC1BC396A1004B4DEF /* Images.xcassets in Resources */,
+				EA2218E71C0EBA47001F6786 /* lrb1.png in Resources */,
 				F0F8550D1BF7382400B1692F /* mession@2x.png in Resources */,
 				F0F855071BF7367F00B1692F /* teach.png in Resources */,
 				F066A5291C058D14003D7EEF /* backcell2.png in Resources */,
